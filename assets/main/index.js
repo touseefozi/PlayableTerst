@@ -1,0 +1,24 @@
+System.register("chunks:///_virtual/FollowCamera.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(e){var t,o,r,i,n,a,l,s,c;return{setters:[function(e){t=e.applyDecoratedDescriptor,o=e.inheritsLoose,r=e.initializerDefineProperty,i=e.assertThisInitialized},function(e){n=e.cclegacy,a=e._decorator,l=e.Node,s=e.Vec3,c=e.Component}],execute:function(){var p,u,f,d,h,w,g,b;n._RF.push({},"de7f9f6w25KcI+TjpWdxVrJ","FollowCamera",void 0);var y=a.ccclass,m=a.property;e("FollowCamera",(p=y("FollowCamera"),u=m(l),f=m({type:Number}),p((w=t((h=function(e){function t(){for(var t,o=arguments.length,n=new Array(o),a=0;a<o;a++)n[a]=arguments[a];return t=e.call.apply(e,[this].concat(n))||this,r(t,"target",w,i(t)),r(t,"followSpeed",g,i(t)),r(t,"offset",b,i(t)),t}o(t,e);var n=t.prototype;return n.start=function(){this.target&&(this.offset=this.node.position.clone().subtract(this.target.position))},n.update=function(e){if(this.target){var t=this.target.position.clone().add(this.offset),o=this.node.position.clone(),r=s.lerp(new s,o,t,e*this.followSpeed);this.node.setPosition(r)}},t}(c)).prototype,"target",[u],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),g=t(h.prototype,"followSpeed",[f],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 5}}),b=t(h.prototype,"offset",[m],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return new s}}),d=h))||d));n._RF.pop()}}}));
+
+System.register("chunks:///_virtual/main",["./FollowCamera.ts","./PlayerController.ts"],(function(){return{setters:[null,null],execute:function(){}}}));
+
+System.register("chunks:///_virtual/PlayerController.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(e){var t,o,n,i,r,s,a,u,l;return{setters:[function(e){t=e.applyDecoratedDescriptor,o=e.inheritsLoose,n=e.initializerDefineProperty,i=e.assertThisInitialized},function(e){r=e.cclegacy,s=e._decorator,a=e.input,u=e.Input,l=e.Component}],execute:function(){var p,c,h,M,m,f,v,y,w,b,X,d,S;r._RF.push({},"6589br9JXlBrZ/08WyrcztI","PlayerController",void 0);var D=s.ccclass,E=s.property;e("PlayerController",(p=D("PlayerController"),c=E({type:Number}),h=E({type:Number}),M=E({type:Number}),m=E({type:Number}),f=E({type:Number}),p((w=t((y=function(e){function t(){for(var t,o=arguments.length,r=new Array(o),s=0;s<o;s++)r[s]=arguments[s];return t=e.call.apply(e,[this].concat(r))||this,n(t,"swerveSpeed",w,i(t)),n(t,"maxSwerveAmount",b,i(t)),n(t,"forwardSpeed",X,i(t)),n(t,"clampXMin",d,i(t)),n(t,"clampXMax",S,i(t)),t.lastMouseX=0,t.moveFactorX=0,t.isMouseDown=!1,t}o(t,e);var r=t.prototype;return r.start=function(){a.on(u.EventType.MOUSE_DOWN,this.onMouseDown,this),a.on(u.EventType.MOUSE_MOVE,this.onMouseMove,this),a.on(u.EventType.MOUSE_UP,this.onMouseUp,this)},r.update=function(e){var t=this.node.position,o=t.z+this.forwardSpeed*e,n=t.x;this.isMouseDown&&(n+=this.moveFactorX*this.swerveSpeed,n=Math.max(this.clampXMin,Math.min(this.clampXMax,n))),this.node.setPosition(n,t.y,o)},r.onMouseDown=function(e){this.isMouseDown=!0,this.lastMouseX=e.getLocationX()},r.onMouseMove=function(e){if(this.isMouseDown){var t=e.getLocationX(),o=t-this.lastMouseX;this.moveFactorX=o/100*-1,this.moveFactorX=Math.max(-this.maxSwerveAmount,Math.min(this.maxSwerveAmount,this.moveFactorX)),this.lastMouseX=t}},r.onMouseUp=function(e){this.isMouseDown=!1,this.moveFactorX=0},r.onDestroy=function(){a.off(u.EventType.MOUSE_DOWN,this.onMouseDown,this),a.off(u.EventType.MOUSE_MOVE,this.onMouseMove,this),a.off(u.EventType.MOUSE_UP,this.onMouseUp,this)},t}(l)).prototype,"swerveSpeed",[c],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return.5}}),b=t(y.prototype,"maxSwerveAmount",[h],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 1.5}}),X=t(y.prototype,"forwardSpeed",[M],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 5}}),d=t(y.prototype,"clampXMin",[m],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return-2}}),S=t(y.prototype,"clampXMax",[f],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 2}}),v=y))||v));r._RF.pop()}}}));
+
+(function(r) {
+  r('virtual:///prerequisite-imports/main', 'chunks:///_virtual/main'); 
+})(function(mid, cid) {
+    System.register(mid, [cid], function (_export, _context) {
+    return {
+        setters: [function(_m) {
+            var _exportObj = {};
+
+            for (var _key in _m) {
+              if (_key !== "default" && _key !== "__esModule") _exportObj[_key] = _m[_key];
+            }
+      
+            _export(_exportObj);
+        }],
+        execute: function () { }
+    };
+    });
+});
